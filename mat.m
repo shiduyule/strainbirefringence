@@ -5,17 +5,21 @@ syms a1 a3 a6 a5 a4 k;
 % matrix65 = [a1,a6,a5; 
 %            a6, a1, 0;
 %            a5, 0, a3];
-%matrix654 = [a1,a6,a5;
+%matrix654 = [a1,a6,a5; 
 %            a6, a1,a4;
 %            a5, a4,a3];
 
-matrix654 = [a1,         a6,   0.2 * a6;
-             a6,   a1,         0.2 * a6;
-            0.2 * a6,   0.2 * a6,         a3];
+matrix654 = [a1,         a6,   0.1 * a6;
+             a6,         a1,         0.1 * a6;
+            0.1 * a6,   0.1 * a6,         a3];
         
-matrix654 = [a1,         a6,   k * a6;
-             a6,   a1,         k * a6;
-            k * a6,   k * a6,         a3];
+% matrix654 = [a1,         a6,        0  ;
+%              a6,       a1,           0     ;
+%                0  ,    0  ,         a3];
+%            
+%            matrix654 = [a1,         a6,   0.01 * a6;
+%                      a6,         a1,         0.01 * a6;
+%                     0.01 * a6,   0.01 * a6,         a3];
 
         
 % [V6,D6] = eig(matrix6);   %% 使用 MATLAB 中的eig函数来计算给定对称矩阵的特征值（eigenvalues）和对应的特征向量（eigenvectors）
@@ -36,7 +40,7 @@ matrix654 = [a1,         a6,   k * a6;
 
 %%  consider S6 , S5 , S4
 disp(matrix654);
-
+disp(D654)
 disp(D654(1,1));
 disp(D654(2,2));
 disp(D654(3,3));
@@ -44,6 +48,8 @@ disp(D654(3,3));
 %%    计算两根之差
 deltabetaD654 =D654(3,3) - D654(2,2)  ;
 disp(deltabetaD654)     
+
+
 
 
 % %

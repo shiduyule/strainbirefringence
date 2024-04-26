@@ -1,27 +1,27 @@
-syms \beta1 \beta3 \beta6 \beta5 \beta4 k;
-% m\betatrix6 = [\beta1,\beta6,0;
-%            \beta6,\beta1,0;
-%            0,0, \beta3];
-% m\betatrix65 = [\beta1,\beta6,\beta5; 
-%            \beta6, \beta1, 0;
-%            \beta5, 0, \beta3];
-%m\betatrix654 = [\beta1,\beta6,\beta5;
-%            \beta6, \beta1,\beta4;
-%            \beta5, \beta4,\beta3];
+syms a1 a3 a6 a5 a4 k;
+% matrix6 = [a1,a6,0;
+%            a6,a1,0;
+%            0,0, a3];
+% matrix65 = [a1,a6,a5; 
+%            a6, a1, 0;
+%            a5, 0, a3];
+%matrix654 = [a1,a6,a5; 
+%            a6, a1,a4;
+%            a5, a4,a3];
 
-m\betatrix654 = [\beta1,         \beta6,   0.2 * \beta6;
-             \beta6,   \beta1,         0.2 * \beta6;
-            0.2 * \beta6,   0.2 * \beta6,         \beta3];
+matrix654 = [a1,         a6,   0.1 * a6;
+             a6,         a1,         0.1 * a6;
+            0.1 * a6,   0.1 * a6,         a3];
         
-m\betatrix654 = [\beta1,         \beta6,   k * \beta6;
-             \beta6,   \beta1,         k * \beta6;
-            k * \beta6,   k * \beta6,         \beta3];
+% matrix654 = [a1,         a6,   k * a6;
+%              a6,   a1,         k * a6;
+%             k * a6,   k * a6,         a3];
 
         
-% [V6,D6] = eig(m\betatrix6);   %% 使用 M\betaTL\betaB 中的eig函数来计算给定对称矩阵的特征值（eigenv\betalues）和对应的特征向量（eigenvectors）
-%[V65,D65] = eig(m\betatrix65);  
-% eig(m\betatrix6)计算了矩阵m\betatrix6的特征值和特征向量，并将它们分别存储在V6和D6中。其中，V6是特征向量矩阵，D6是对角矩阵，对角线上的元素是矩阵m\betatrix6的特征值。
-[V654,D654] = eig(m\betatrix654);   
+% [V6,D6] = eig(matrix6);   %% 使用 MATLAB 中的eig函数来计算给定对称矩阵的特征值（eigenvalues）和对应的特征向量（eigenvectors）
+%[V65,D65] = eig(matrix65);  
+% eig(matrix6)计算了矩阵matrix6的特征值和特征向量，并将它们分别存储在V6和D6中。其中，V6是特征向量矩阵，D6是对角矩阵，对角线上的元素是矩阵matrix6的特征值。
+[V654,D654] = eig(matrix654);   
 %%  only consider S6
 % disp(D6(1,1));
 % disp(D6(2,2));
@@ -31,81 +31,81 @@ m\betatrix654 = [\beta1,         \beta6,   k * \beta6;
 % disp(D65(1,1));
 % disp(D65(2,2));
 % disp(D65(3,3));
-%delt\betabet\betaD65 = D65(2,2) - D65(3,3);
-%disp(delt\betabet\betaD65);
+%deltabetaD65 = D65(2,2) - D65(3,3);
+%disp(deltabetaD65);
 
 %%  consider S6 , S5 , S4
-disp(m\betatrix654);
+disp(matrix654);
 
 disp(D654(1,1));
 disp(D654(2,2));
 disp(D654(3,3));
 
 %%    计算两根之差
-delt\betabet\betaD654 =D654(3,3) - D654(2,2)  ;
-disp(delt\betabet\betaD654)     
+deltabetaD654 =D654(3,3) - D654(2,2)  ;
+disp(deltabetaD654)     
 
 
 % %
-% (2*\beta1)/3 + \beta3/3 - ((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3)/2 - (3^(1/2)*(((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3) - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)/((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3))*1i)/2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)/(2*((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3))
+% (2*a1)/3 + a3/3 - ((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3)/2 - (3^(1/2)*(((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3) - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)/((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3))*1i)/2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)/(2*((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3))
 %  
-% (2*\beta1)/3 + \beta3/3 - ((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3)/2 + (3^(1/2)*(((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3) - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)/((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3))*1i)/2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)/(2*((((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 - (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3)^(1/2) + (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^(1/3))
+% (2*a1)/3 + a3/3 - ((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3)/2 + (3^(1/2)*(((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3) - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)/((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3))*1i)/2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)/(2*((((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 - (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3)^(1/2) + (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^(1/3))
 %  
  
 
 % %% 求一下偏导数
-% df_\beta4 = diff(delt\betabet\betaD654, \beta4);
-% df_\beta5 = diff(delt\betabet\betaD654, \beta5);
-% df_\beta6 = diff(delt\betabet\betaD654, \beta6);
-% disp(df_\beta4);
-% disp(df_\beta5);
-% disp(df_\beta6); 
-%% the follow is solution of re\betal problem
+% df_a4 = diff(deltabetaD654, a4);
+% df_a5 = diff(deltabetaD654, a5);
+% df_a6 = diff(deltabetaD654, a6);
+% disp(df_a4);
+% disp(df_a5);
+% disp(df_a6); 
+%% the follow is solution of real problem
 %{
 -3^(1/2)*
  (
     (
         (   (
-                (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6
+                (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6
             )^2 
             - 
-            (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3
+            (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3
         )^(1/2) 
         +     
-        (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 
+        (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 
         + 
-        ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 
+        ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 
         +
-        (2*\beta1 + \beta3)^3/27 
+        (2*a1 + a3)^3/27 
         +
-        \beta4*\beta5*\beta6
+        a4*a5*a6
         
     )^(1/3) 
         
     -
     
-    (   \beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 
+    (   a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 
         +
-        (2*\beta1 + \beta3)^2/9
+        (2*a1 + a3)^2/9
     )    
     /
     (
         (
-            ((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 
+            ((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 
             -
-            (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3
+            (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3
         )^(1/2) 
         + 
-        (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2    +     ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6    +    (2*\beta1 + \beta3)^3/27    +    \beta4*\beta5*\beta6 
+        (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2    +     ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6    +    (2*a1 + a3)^3/27    +    a4*a5*a6 
     )^(1/3)
 )
  *1i
 % % 
 
-%%  when \beta1 = 0.44    \beta3 = 0.46
-\beta1 = 1; \beta3 = 2; 
-m\betatrix654cc = [\beta1,\beta6,\beta5; \beta6,\beta1,\beta4; \beta5,\beta4,\beta3];
-[V,D] = eig(m\betatrix654cc);
+%%  when a1 = 0.44    a3 = 0.46
+a1 = 1; a3 = 2; 
+matrix654cc = [a1,a6,a5; a6,a1,a4; a5,a4,a3];
+[V,D] = eig(matrix654cc);
 
 % disp(D)
 
@@ -120,37 +120,37 @@ disp(diff);
  (
     (
         (   (
-                (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6
+                (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6
             )^2 
             - 
-            (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3
+            (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3
         )^(1/2) 
         +     
-        (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 
+        (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 
         + 
-        ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 
+        ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 
         +
-        (2*\beta1 + \beta3)^3/27 
+        (2*a1 + a3)^3/27 
         +
-        \beta4*\beta5*\beta6
+        a4*a5*a6
         
     )^(1/3) 
         
     -
     
-    (   \beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 
+    (   a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 
         +
-        (2*\beta1 + \beta3)^2/9
+        (2*a1 + a3)^2/9
     )    
     /
     (
         (
-            ((\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2 + ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6 + (2*\beta1 + \beta3)^3/27 + \beta4*\beta5*\beta6)^2 
+            ((a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2 + ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6 + (2*a1 + a3)^3/27 + a4*a5*a6)^2 
             -
-            (\beta4^2/3 - \beta1^2/3 - (2*\beta1*\beta3)/3 + \beta5^2/3 + \beta6^2/3 + (2*\beta1 + \beta3)^2/9)^3
+            (a4^2/3 - a1^2/3 - (2*a1*a3)/3 + a5^2/3 + a6^2/3 + (2*a1 + a3)^2/9)^3
         )^(1/2) 
         + 
-        (\beta1^2*\beta3)/2 - (\beta1*\beta4^2)/2 - (\beta1*\beta5^2)/2 - (\beta3*\beta6^2)/2    +     ((2*\beta1 + \beta3)*(- \beta1^2 - 2*\beta3*\beta1 + \beta4^2 + \beta5^2 + \beta6^2))/6    +    (2*\beta1 + \beta3)^3/27    +    \beta4*\beta5*\beta6 
+        (a1^2*a3)/2 - (a1*a4^2)/2 - (a1*a5^2)/2 - (a3*a6^2)/2    +     ((2*a1 + a3)*(- a1^2 - 2*a3*a1 + a4^2 + a5^2 + a6^2))/6    +    (2*a1 + a3)^3/27    +    a4*a5*a6 
     )^(1/3)
 )
  *1i
@@ -158,9 +158,9 @@ disp(diff);
  
 -3^(1/2)*
 (
-    (\beta4^2/6 + \beta5^2/6 - \beta6^2/3          +    ((\beta4^2/6 + \beta4*\beta5*\beta6 + \beta5^2/6 - \beta6^2/3 + 1/27)^2 - (\beta4^2/3 + \beta5^2/3 + \beta6^2/3 + 1/9)^3)^(1/2)         +          \beta4*\beta5*\beta6    +    1/27)^(1/3) 
+    (a4^2/6 + a5^2/6 - a6^2/3          +    ((a4^2/6 + a4*a5*a6 + a5^2/6 - a6^2/3 + 1/27)^2 - (a4^2/3 + a5^2/3 + a6^2/3 + 1/9)^3)^(1/2)         +          a4*a5*a6    +    1/27)^(1/3) 
     - 
-    (\beta4^2/3 + \beta5^2/3 + \beta6^2/3 + 1/9)/(\beta4^2/6 + \beta5^2/6 - \beta6^2/3 + ((\beta4^2/6 + \beta4*\beta5*\beta6 + \beta5^2/6 - \beta6^2/3 + 1/27)^2 - (\beta4^2/3 + \beta5^2/3 + \beta6^2/3 + 1/9)^3)^(1/2) + \beta4*\beta5*\beta6 + 1/27)^(1/3))
+    (a4^2/3 + a5^2/3 + a6^2/3 + 1/9)/(a4^2/6 + a5^2/6 - a6^2/3 + ((a4^2/6 + a4*a5*a6 + a5^2/6 - a6^2/3 + 1/27)^2 - (a4^2/3 + a5^2/3 + a6^2/3 + 1/9)^3)^(1/2) + a4*a5*a6 + 1/27)^(1/3))
 
 *1i
 
